@@ -6,16 +6,8 @@ function WindowManager(windowInfo) {
   if (!this.browserWindows)
     throw new Error("Your browser does not support windows.");
 
-  var windowProps = [
-    "alwaysOnTop", "focused", "height",
-    "id", "incognito", "left",
-    "sessionId", "state", "tabs",
-    "title", "top", "type", "width"
-  ];
-  for (let prop of windowProps) {
-    if (windowInfo[prop] !== undefined)
-      this[prop] = windowInfo[prop];
-  }
+  for (let prop in windowInfo)
+    this[prop] = windowInfo[prop];
 }
 
 WindowManager.browserWindows = (window.browser || window.chrome).windows;
