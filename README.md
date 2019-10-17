@@ -12,7 +12,7 @@ El archivo **WebExtension.js** debe ir antes que las APIs de extensión que quie
 * [Alarm](#alarm)
 * [Command](#command)
 * [Notification](#notification)
-* [StorageManager](#storagemanager)
+* [StorageArea](#storagearea)
 * [Tab](#tab)
 * [WebExtension](#webextension)
 * [WindowManager](#windowmanager)
@@ -96,17 +96,17 @@ notification = new Notification(null, {title: 'Saludo', message: 'Hola mundo'});
 notification.id // Regresa 'Saludo'.
 ```
 
-## StorageManager
+## StorageArea
 
 ```javascript
-var storage = new StorageManager();
+var storage = new StorageArea();
 // Muestra el objeto de clave/valor con todos los items almacenados.
 storage.get(null).then((items) => console.log(items));
 // Almacena uno o mas items en el storage.
 storage.set({item1: "Hola mundo"}).then(() => console.log("Se almaceno correctamente."));
 ```
 
-Por defecto *StorageManager* usa el *storage.local*, si en caso quiere usar otro, como *storage.sync*, puede pasar como segundo parámetro el tipo de almacenamiento a usar.
+Por defecto *StorageArea* usa el *storage.local*, si en caso quiere usar otro, como *storage.sync*, puede pasar como segundo parámetro el tipo de almacenamiento a usar.
 
 ```javascript
 // Obtiene todos los items almacenados en 'sync'.
@@ -119,7 +119,7 @@ También puede establecer el almacenamiento por defecto que prefiera.
 // usando el método 'setDefaultStorageAreaType' para cambiar el almacenamiento por defecto
 storage.setDefaultStorageAreaType('sync');
 // o especificarlo al crear la instancia.
-var storageSync = new StorageManager('sync');
+var storageSync = new StorageArea('sync');
 ```
 
 ## Tab
