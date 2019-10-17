@@ -1,4 +1,3 @@
-
 # WebExtensionLibs
 
 El archivo **WebExtension.js** debe ir antes que las APIs de extensión que quiera usar, ya que estas dependen de el. *Ejem*:
@@ -107,7 +106,7 @@ storage.get(null).then((items) => console.log(items));
 storage.set({item1: "Hola mundo"}).then(() => console.log("Se almaceno correctamente."));
 ```
 
-Por defecto *StorageManager* usa el storage 'local', si en caso quiere usar otro storage como 'sync' puede pasar como segundo parámetro el tipo de almacenamiento a usar.
+Por defecto *StorageManager* usa el *storage.local*, si en caso quiere usar otro, como *storage.sync*, puede pasar como segundo parámetro el tipo de almacenamiento a usar.
 
 ```javascript
 // Obtiene todos los items almacenados en 'sync'.
@@ -117,9 +116,9 @@ storage.get(null, 'sync').then((items) => console.log(items));
 También puede establecer el almacenamiento por defecto que prefiera.
 
 ```javascript
-// Puede usar el método 'setDefaultStorageArea' para cambiar el almacenamiento por defecto
-storage.setDefaultStorageArea('sync');
-// o también hacerlo al crear la instancia.
+// usando el método 'setDefaultStorageAreaType' para cambiar el almacenamiento por defecto
+storage.setDefaultStorageAreaType('sync');
+// o especificarlo al crear la instancia.
 var storageSync = new StorageManager('sync');
 ```
 
